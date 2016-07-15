@@ -21,6 +21,7 @@ public:
 
     void run()
     {
+        Thread::sleep(300);
         *_arg2 = 20;
     }
 
@@ -31,9 +32,9 @@ private:
 
 int* createThread(){
     int *a = new int;
-    MyThread mt("foo", a);
-    Thread t;
-    t.start(mt);
+    MyThread* mt = new MyThread("foo", a);
+    Thread* t = new Thread;
+    t->start(*mt);
     return a;
 }
 
